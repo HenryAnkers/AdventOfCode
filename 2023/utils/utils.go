@@ -5,6 +5,11 @@ import (
 	"os"
 )
 
+type Coord struct {
+	X int
+	Y int
+}
+
 func ReadLines(path string) ([]string, error) {
 	file, err := os.Open(path)
 	if err != nil {
