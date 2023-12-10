@@ -11,6 +11,22 @@ type Coord struct {
 	Y int
 }
 
+func (c Coord) South() Coord {
+	return Coord{X: c.X, Y: c.Y + 1}
+}
+
+func (c Coord) North() Coord {
+	return Coord{X: c.X, Y: c.Y - 1}
+}
+
+func (c Coord) East() Coord {
+	return Coord{X: c.X + 1, Y: c.Y}
+}
+
+func (c Coord) West() Coord {
+	return Coord{X: c.X - 1, Y: c.Y}
+}
+
 func ReadLines(path string) ([]string, error) {
 	file, err := os.Open(path)
 	if err != nil {
