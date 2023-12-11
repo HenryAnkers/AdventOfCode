@@ -27,6 +27,10 @@ func (c Coord) West() Coord {
 	return Coord{X: c.X - 1, Y: c.Y}
 }
 
+func NewCoord(x int, y int) Coord {
+	return Coord{X: x, Y: y}
+}
+
 func ReadLines(path string) ([]string, error) {
 	file, err := os.Open(path)
 	if err != nil {
