@@ -31,6 +31,20 @@ func NewCoord(x int, y int) Coord {
 	return Coord{X: x, Y: y}
 }
 
+// 0123 northeastsouthwest is convention used for what direction we're pointing in
+func (c Coord) NewCoordInDirection(direction int) Coord {
+	if direction == 0 {
+		return c.North()
+	}
+	if direction == 1 {
+		return c.East()
+	}
+	if direction == 2 {
+		return c.South()
+	}
+	return c.West()
+}
+
 func ReadLines(path string) ([]string, error) {
 	file, err := os.Open(path)
 	if err != nil {
