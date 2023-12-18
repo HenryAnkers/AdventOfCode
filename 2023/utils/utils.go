@@ -27,7 +27,20 @@ func (c Coord) West() Coord {
 	return Coord{X: c.X - 1, Y: c.Y}
 }
 
-func NewCoord(x int, y int) Coord {
+func (c Coord) Neighbours(minX, minY, maxX, maxY int) []Coord {
+	allNeighbours := []Coord{c.North(), c.East(), c.South(), c.West()}
+	validNeighbours := []Coord{}
+
+	for _, n := range allNeighbours {
+		if !(n.X < minX || n.X > maxX || n.Y < minY || n.Y > maxY) {
+			validNeighbours = append(validNeighbours, n)
+		}
+	}
+
+	return validNeighbours
+}
+
+func NewCoord(x, y int) Coord {
 	return Coord{X: x, Y: y}
 }
 
