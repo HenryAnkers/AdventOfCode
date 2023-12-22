@@ -9,22 +9,23 @@ import (
 type Coord struct {
 	X int
 	Y int
+	Z int
 }
 
 func (c Coord) South() Coord {
-	return Coord{X: c.X, Y: c.Y + 1}
+	return Coord{X: c.X, Y: c.Y + 1, Z: c.Z}
 }
 
 func (c Coord) North() Coord {
-	return Coord{X: c.X, Y: c.Y - 1}
+	return Coord{X: c.X, Y: c.Y - 1, Z: c.Z}
 }
 
 func (c Coord) East() Coord {
-	return Coord{X: c.X + 1, Y: c.Y}
+	return Coord{X: c.X + 1, Y: c.Y, Z: c.Z}
 }
 
 func (c Coord) West() Coord {
-	return Coord{X: c.X - 1, Y: c.Y}
+	return Coord{X: c.X - 1, Y: c.Y, Z: c.Z}
 }
 
 func (c Coord) Neighbours(minX, minY, maxX, maxY int) []Coord {
@@ -42,6 +43,10 @@ func (c Coord) Neighbours(minX, minY, maxX, maxY int) []Coord {
 
 func NewCoord(x, y int) Coord {
 	return Coord{X: x, Y: y}
+}
+
+func NewCoord3D(x, y, z int) Coord {
+	return Coord{X: x, Y: y, Z: z}
 }
 
 // 0123 northeastsouthwest is convention used for what direction we're pointing in
