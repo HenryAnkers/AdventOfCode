@@ -5,6 +5,10 @@ def parse_input(file_path):
     with open(file_path, 'r') as file:
         return [line.strip() for line in file]
 
+def parse_int_input(file_path):
+    with open(file_path, 'r') as file:
+        return [[int(item) for item in line.strip().split()] for line in file]
+
 def part1(data):
     return None
 
@@ -16,7 +20,8 @@ day = os.path.basename(__file__).split('.')[0].replace('day', '')
 input_path = f"./inputs/day{day}.txt"
 
 start_time = time.time()
-input_data = parse_input(input_path)
+#input_data = parse_input(input_path)
+input_data = parse_int_input(input_path)
 end_time = time.time()
 print(f"Day {day} - Parsing took {end_time - start_time:.6f} seconds")
 #print(input_data)
