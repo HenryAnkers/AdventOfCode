@@ -16,10 +16,10 @@ def parseIntInput(file_path):
 def parseInputAsMap(file_path):
     with open(file_path, "r") as file:
         data = [line.strip() for line in file]
-        dataMap = defaultdict(lambda: defaultdict(bool))
+        dataMap = defaultdict(bool)
         for y, line in enumerate(data):
             for x, char in enumerate(line):
-                dataMap[x][y] = char
+                dataMap[(x,y)] = char
         return dataMap
 
 
